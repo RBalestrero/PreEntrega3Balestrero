@@ -1,0 +1,93 @@
+#title {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.filterContainer {
+  display: flex;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.filterList {
+  margin: 10px;
+}
+
+.filterButtons {
+  margin: 0 10px;
+}
+.searchID {
+  display: flex;
+  width: 255px;
+  justify-content: space-around;
+}
+
+.ticketContainer {
+  height: auto;
+  background-color: rgba(151, 151, 151, 0.416);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.ticket {
+  height: 150px;
+  margin: 15px 15px;
+  background-color: white;
+  justify-items: center;
+  align-content: center;
+  padding: 5px 30px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.infoTicket {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto repeat(3, auto) 450px;
+  grid-template-rows: 30px 50px;
+  row-gap: 0px;
+  column-gap: 30px;
+  place-items: center;
+}
+
+.buttonsTicket {
+  display: flex;
+  width: 200px;
+  height: 25px;
+  justify-content: space-around;
+  margin-top: 13px;
+}
+
+#description {
+  width: auto;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  align-content: center;
+}
+
+.infoTitle {
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 7px 0;
+  border-radius: 6px;
+
+  font-family: sans-serif;
+  font-weight: 550;
+  font-style: normal;
+}
+
+.infoContent{
+  font-family: sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
