@@ -1,4 +1,5 @@
-import { ticketList } from "./data.js";
+// import { ticketList } from "./data.js";
+
 
 const newTicket = () => {
   let ticket = {};
@@ -11,31 +12,20 @@ const newTicket = () => {
   ticketList.push(ticket);
 };
 
-const searchTicketByID = () => {
-  let id = prompt("Ingese el ID del ticket que desea buscar");
-  let ticket = ticketList.find((ticket) => ticket.idTicket === id);
-  if (ticket) print(ticket);
-  else alert("El ID buscado no se ha encontrado");
+const searchTicketByID = (tickets, id) => {
+  let arrayTicket = []; 
+  arrayTicket = tickets.filter(ticket => ticket.idTicket === id );
+  return arrayTicket;
 };
 
-const viewOpenTickets = () => {
-  let openTickets = ticketList.filter((ticket) => ticket.estado === "abierto");
-  let ticketListString = [];
-  openTickets.forEach((ticket) =>
-    ticketListString.push(`${ticket.idTicket} -- ${ticket.nombre}`)
-  );
-  alert(`Tickets abiertos:
-${ticketListString.join("\n")}`);
+const viewOpenTickets = (tickets) => {
+  let openTickets = tickets.filter((ticket) => ticket.estado === "abierto");
+  return openTickets;
 };
 
-const viewCloseTickets = () => {
-  let closeTickets = ticketList.filter((ticket) => ticket.estado === "cerrado");
-  let ticketListString = [];
-  closeTickets.forEach((ticket) =>
-    ticketListString.push(`${ticket.idTicket} -- ${ticket.nombre}`)
-  );
-  alert(`Tickets cerrados:
-${ticketListString.join("\n")}`);
+const viewCloseTickets = (tickets) => {
+  let closeTickets = tickets.filter((ticket) => ticket.estado === "cerrado");
+  return closeTickets;
 };
 
 const editTicketState = () => {

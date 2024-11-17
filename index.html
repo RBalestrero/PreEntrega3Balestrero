@@ -7,46 +7,26 @@
     <title>Renzo Balestrero</title>
   </head>
   <body>
-    <h1 id="title">Simulador de ticketera de casos</h1>
-    <div class="filterContainer">
-      <ul class="filters">
-        <div class="searchID">
-          <input type="text" class="inputFilter" placeholder="Buscar ID de ticket">
-          <button class="inputFilterButton">Buscar</button>
-        </div>
-        <div>
-          <button class="filterButtons">Ver tickets abiertos</button>
-          <button class="filterButtons">Ver tickets cerrados</button>
-          <button class="filterButtons">Ver todos los tickets</button>
-        </div>
-      </ul>
-    </div>
-
+    <nav>
+      <h1 id="title">Simulador de ticketera de casos</h1>
+      <div class="filterContainer">
+        <ul class="filters">
+          <div class="searchID">
+            <input type="text"  class="inputFilter" placeholder="Buscar por ID">
+            <input type="text"  class="inputFilter" placeholder="Buscar por contacto">
+            <input type="text"  class="inputFilter" placeholder="Buscar por correo">
+            <!-- <button class="inputFilterButton">Buscar</button> -->
+          </div>
+          <div>
+            <button id="openTickets" class="filterButtons">Ver tickets abiertos</button>
+            <button id="closeTickets" class="filterButtons">Ver tickets cerrados</button>
+            <button id="allTickets" class="filterButtons">Ver todos los tickets</button>
+          </div>
+        </ul>
+      </div>
+    </nav>
     <div class="ticketContainer">
-      <div class="ticket">
-        <div class="infoTicket">
-          <div class="infoTitle">N° de ticket</div>
-          <div class="infoTitle">Contacto</div>
-          <div class="infoTitle">Correo</div>
-          <div class="infoTitle">Estado</div>
-          <div class="infoTitle">Descripción</div>
-          <div class="infoContent">523</div>
-          <div class="infoContent">Renzo Balestrero</div>
-          <div class="infoContent">renzo.balestrero@outlook.com</div>
-          <div class="infoContent">Abierto</div>
-          <div class="infoContent" id="description">Lorem ipsum dolor, sit</div>
-        </div>
-        <div class="buttonsTicket">
-          <button>Resuelto</button>
-          <button>Eliminar</button>
-        </div>
-      </div>
-      <div class="ticket">
-  
-      </div>
-      <div class="ticket">
-  
-      </div>
+      
     </div>
     <script type="module" src="actividad.js"></script>
   </body>
