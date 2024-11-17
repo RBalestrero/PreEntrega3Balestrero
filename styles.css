@@ -23,32 +23,29 @@ nav{
 
 .filterContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .filters {
   display: flex;
-  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
   width: 100%;
-  padding: 10px 10px;
 }
 
-.filterList {
-  margin: 10px;
-}
-
-.filterButtons {
-  margin: 0 10px;
-}
 .searchID {
   display: flex;
-  width: auto;
+  width: 800px;
+  margin: 20px 0;
   justify-content: space-around;
 }
 
 .ticketContainer {
   height: auto;
-  background-color: rgba(151, 151, 151, 0.416);
+  /* background-color: rgba(151, 151, 151, 0.416); */
   padding: 10px;
   border-radius: 10px;
   margin-top: 40px;
@@ -56,13 +53,13 @@ nav{
 
 .ticket {
   display: flex;
-  height: 100px;
+  height: 90px;
   margin: 15px 15px;
   background-color: white;
   justify-content: center;
   align-items: center;
   padding: 5px 30px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.283);
   border-radius: 6px;
 }
 
@@ -70,7 +67,7 @@ nav{
   display: grid;
   width: 100%;
   grid-template-columns: auto repeat(3, auto) 450px;
-  grid-template-rows: 30px 50px;
+  grid-template-rows: 30px 30px;
   row-gap: 0px;
   column-gap: 30px;
   place-items: center;
@@ -78,10 +75,10 @@ nav{
 
 .buttonsTicket {
   display: flex;
-  width: 200px;
-  height: 25px;
+  width: 250px;
+  height: 40px;
   justify-content: space-around;
-  margin-top: 13px;
+  /* margin-top: 13px; */
 }
 
 #description {
@@ -110,8 +107,3 @@ nav{
   font-style: normal;
 }
 
-.inputFilter{
-  
-  /* width: 300px; */
-  margin: 0 20px;
-}

@@ -32,15 +32,14 @@ const render = (list) =>{
             <div class="infoContent" id="description">${list[i].asunto}</div>
           </div>
           <div class="buttonsTicket">
-            <button>Resuelto</button>
-            <button>Eliminar</button>
+            <button type="button" class="btn btn-outline-success">Resuelto</button>
+            <button type="button" class="btn btn-outline-danger">Eliminar</button>
           </div>
         </div>`);
   }
 }
 
 const searchByIdEvent = (tickets) => {
-  const button = document.querySelector('.inputFilterButton');
   const input = document.querySelector('.inputFilter');
 
   input.addEventListener('keydown', (e) => {
