@@ -19,22 +19,35 @@
             <input type="text"  class="inputFilter" placeholder="Número de ticket">
             <input type="text"  class="inputFilter" placeholder="Contacto">
             <input type="text"  class="inputFilter" placeholder="Correo">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Ver
-              </button>
-              <ul class="dropdown-menu">
-                <li><button id="allTickets" class="dropdown-item" type="button">Todos los tickets</button></li>
-                <li><button id="openTickets" class="dropdown-item" type="button">Tickets abiertos</button></li>
-                <li><button id="closeTickets" class="dropdown-item" type="button">Tickets cerrados</button></li>
-              </ul>
-            </div>
           </div>
         </ul>
       </div>
     </nav>
+
+    <div class="titleContainer">
+      <div class="titleDescription">
+        <div class="infoTitle">N°</div>
+        <div class="infoTitle">Contacto</div>
+        <div class="infoTitle">Correo</div>
+        <div class="infoTitle">Estado</div>
+        <div class="infoTitle">Descripción</div>
+      </div>
+      <div class="buttonsTicket">
+        <div class="dropdown">
+          <button id="buttonFilter" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Visualizar
+          </button>
+          <ul class="dropdown-menu">
+            <li><button id="allTickets" class="dropdown-item" type="button">Todos los tickets</button></li>
+            <li><button id="openTickets" class="dropdown-item" type="button">Tickets abiertos</button></li>
+            <li><button id="closeTickets" class="dropdown-item" type="button">Tickets cerrados</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="ticketContainer">
-      
+
     </div>
     <script type="module" src="actividad.js"></script>
   </body>

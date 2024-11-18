@@ -6,7 +6,8 @@
 }
 
 body{
-  margin: 0;
+  justify-items: center;
+
 }
 
 nav{
@@ -44,21 +45,19 @@ nav{
 }
 
 .ticketContainer {
+  width: 1555px;
   height: auto;
-  /* background-color: rgba(151, 151, 151, 0.416); */
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 40px;
 }
 
 .ticket {
   display: flex;
-  height: 90px;
-  margin: 15px 15px;
+  height: 70px;
+  margin: 15px 0;
   background-color: white;
   justify-content: center;
   align-items: center;
-  padding: 5px 30px;
+  text-align: center;
+  padding: 5px 0;
   border: 1px solid rgba(0, 0, 0, 0.283);
   border-radius: 6px;
 }
@@ -66,8 +65,8 @@ nav{
 .infoTicket {
   display: grid;
   width: 100%;
-  grid-template-columns: auto repeat(3, auto) 450px;
-  grid-template-rows: 30px 30px;
+  grid-template-columns: 10% 13% 23% 11% 1fr;
+  grid-template-rows: 50px;
   row-gap: 0px;
   column-gap: 30px;
   place-items: center;
@@ -75,14 +74,14 @@ nav{
 
 .buttonsTicket {
   display: flex;
-  width: 250px;
-  height: 40px;
+  width: 200px;
+  height: 25px;
   justify-content: space-around;
-  /* margin-top: 13px; */
+  margin-right: 10px;
 }
 
 #description {
-  width: auto;
+  width: 1fr;
   height: 100%;
   overflow: auto;
   text-align: center;
@@ -90,20 +89,58 @@ nav{
 }
 
 .infoTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   text-align: center;
-  background-color: white;
-  padding: 7px 0;
+  /* background-color: white; */
+  /* padding: 7px 0; */
   border-radius: 6px;
-
   font-family: sans-serif;
-  font-weight: 550;
+  font-weight: 700;
   font-style: normal;
 }
 
 .infoContent{
+  width: 100%;
   font-family: sans-serif;
   font-weight: 100;
   font-style: normal;
 }
+
+.titleContainer{
+  display: flex;
+  width: 100%;
+  border-radius: 6px;
+  grid-template-rows: 30px;
+  height: 50px;
+  width: 1555px;
+  margin-top: 15px;
+  /* margin: 15px 10px 0 10px; */
+  background-color: rgba(159, 159, 159, 0.219);
+  align-items: center;
+}
+
+.titleDescription{
+  display: grid;
+  grid-template-columns: 10% 13% 23% 11% 1fr;
+  grid-template-rows: 30px;
+  column-gap: 30px;
+  width: 100%;
+}
+
+#buttonFilter{
+  color: black !important;
+  border: transparent !important;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0;
+}
+
+.btn-outline-success, .btn-outline-danger{
+  padding: 0 5px !important;
+}
+
 
