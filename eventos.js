@@ -55,6 +55,8 @@ const render = (list) => {
       
       container.append(ticket);
     }
+
+    closeTicket(list);
     
 };
 
@@ -98,10 +100,14 @@ const viewAll = (tickets) => {
   });
 };
 
-const buttonResuelto = (tickets) => {
-  const button = document.querySelector('.btn-outline-success');
-  button.addEventListener('click', () => {
-    editTicketState(button.id)
+const closeTicket = (tickets) => {
+  console.log('click');
+  const buttons = document.querySelectorAll('.btn-outline-success');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      tickets = editTicketState(tickets,button.id);
+      render(tickets);
+    })
   });
 }
 
@@ -112,5 +118,5 @@ export {
   viewOpenTicketsEvent,
   viewCloseTicketsEvent,
   viewAll,
-  buttonResuelto
+  closeTicket
 };

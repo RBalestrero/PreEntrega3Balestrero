@@ -40,9 +40,12 @@ const viewCloseTickets = (tickets) => {
   return closeTickets;
 };
 
-const editTicketState = (id) => {
-  let index = ticketList.findIndex((ticket) => ticket.idTicket === id);
-  
+const editTicketState = (tickets,id) => {
+  let index = tickets.findIndex((ticket) => ticket.idTicket === id);
+  tickets[index].estado = "cerrado";
+  tickets[index].resultado = "Resuelto";
+  return tickets;
+
 };
 
 const print = (ticket) => {

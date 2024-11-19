@@ -4,7 +4,7 @@ import {
     viewOpenTicketsEvent,
     viewCloseTicketsEvent,
     viewAll,
-    buttonResuelto
+    closeTicket
 } from './eventos.js';
 
 import { ticketList } from './data.js';
@@ -19,4 +19,6 @@ viewCloseTicketsEvent(ticketList);
 
 viewAll(ticketList);
 
-buttonResuelto(ticketList);
+
+
+
