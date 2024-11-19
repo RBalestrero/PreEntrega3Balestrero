@@ -37,11 +37,19 @@ nav{
   width: 100%;
 }
 
-.searchID {
+.search {
   display: flex;
-  width: 800px;
+  height: 30px;
+  width: 1000px;
   margin: 20px 0;
   justify-content: space-around;
+}
+
+.inputFilter {
+  padding: 5px 5px;
+  width: 350px;
+  border-radius: 5px;
+  border: 1px solid rgba(62, 62, 62, 0.216);
 }
 
 .ticketContainer {
@@ -142,5 +150,4 @@ nav{
 .btn-outline-success, .btn-outline-danger{
   padding: 0 5px !important;
 }
-
 

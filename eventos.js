@@ -1,49 +1,73 @@
-// import { ticketList } from "./data.js";
 import {
   newTicket,
-  searchTicketByID,
+  searchByID,
+  searchByMail,
+  searchByContact,
   viewOpenTickets,
   viewCloseTickets,
   editTicketState,
 } from "./funciones.js";
 
-// import { ticketList } from "./data.js";
-
 const render = (list) => {
-  const ticket = document.querySelector(".ticketContainer");
+  
+  // const ticket = document.querySelector(".ticketContainer");
+  // ticket.innerHTML = "";
 
-  ticket.innerHTML = "";
+  // for (let i = 0; i < list.length; i++) {
+  //   ticket.insertAdjacentHTML(
+  //     "beforeend",
+  //     `
+  //     <div class="ticket">
+  //         <div class="infoTicket">
+  //           <div class="infoContent">${list[i].idTicket}</div>
+  //           <div class="infoContent">${list[i].nombre}</div>
+  //           <div class="infoContent">${list[i].email}</div>
+  //           <div class="infoContent">${list[i].estado}</div>
+  //           <div class="infoContent" id="description">${list[i].asunto}</div>
+  //         </div>
+  //         <div class="buttonsTicket">
+  //           <button type="button" class="btn btn-outline-success">Resuelto</button>
+  //           <button type="button" class="btn btn-outline-danger">Eliminar</button>
+  //         </div>
+  //       </div>`
+  //   );
+  // }
 
-  for (let i = 0; i < list.length; i++) {
-    ticket.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="ticket">
-          <div class="infoTicket">
-            <div class="infoContent">${list[i].idTicket}</div>
-            <div class="infoContent">${list[i].nombre}</div>
-            <div class="infoContent">${list[i].email}</div>
-            <div class="infoContent">${list[i].estado}</div>
-            <div class="infoContent" id="description">${list[i].asunto}</div>
-          </div>
-          <div class="buttonsTicket">
-            <button type="button" class="btn btn-outline-success">Resuelto</button>
-            <button type="button" class="btn btn-outline-danger">Eliminar</button>
-          </div>
-        </div>`
-    );
-  }
+  const container = document.querySelector(".ticketContainer");
+  container.innerHTML = "";
+  for(let i = 0; i<list.length; i++){
+    const ticket = document.createElement("div");
+    ticket.classList.add("ticket");
+    ticket.innerHTML =`
+      <div class="infoTicket">
+        <div class="infoContent">${list[i].idTicket}</div>
+        <div class="infoContent">${list[i].nombre}</div>
+        <div class="infoContent">${list[i].email}</div>
+        <div class="infoContent">${list[i].estado}</div>
+        <div class="infoContent" id="description">${list[i].asunto}</div>
+      </div>
+      <div class="buttonsTicket">
+        <button type="button" class="btn btn-outline-success">Resuelto</button>
+        <button type="button" class="btn btn-outline-danger">Eliminar</button>
+      </div>
+      `;
+  
+      
+      container.append(ticket);
+    }
+    
 };
 
-const searchByIdEvent = (tickets) => {
+const search = (tickets) => {
   const input = document.querySelector(".inputFilter");
-
   input.addEventListener("keydown", (e) => {
     console.log(e);
     if (e.key === "Enter") {
       if (input.value) {
-        let ticket = searchTicketByID(tickets, input.value);
-        render(ticket);
+        let ticketById = searchByID(tickets,input.value);
+        let ticketByContact = searchByContact(tickets,input.value);
+        let ticketByMail = searchByMail(tickets,input.value);    
+        render([...ticketById, ...ticketByContact, ...ticketByMail]);    
       } else render(tickets);
     }
   });
@@ -76,7 +100,7 @@ const viewAll = (tickets) => {
 
 export {
   render,
-  searchByIdEvent,
+  search,
   viewOpenTicketsEvent,
   viewCloseTicketsEvent,
   viewAll,

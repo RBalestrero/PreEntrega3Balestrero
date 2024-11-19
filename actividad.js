@@ -1,6 +1,6 @@
 import { 
     render,
-    searchByIdEvent,
+    search,
     viewOpenTicketsEvent,
     viewCloseTicketsEvent,
     viewAll
@@ -10,7 +10,7 @@ import { ticketList } from './data.js';
 
 render(ticketList);
 
-searchByIdEvent(ticketList);
+search(ticketList);
 
 viewOpenTicketsEvent(ticketList);
 

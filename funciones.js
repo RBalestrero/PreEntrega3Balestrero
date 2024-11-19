@@ -12,11 +12,23 @@ const newTicket = () => {
   ticketList.push(ticket);
 };
 
-const searchTicketByID = (tickets, id) => {
+const searchByID = (tickets, id) => {
   let arrayTicket = []; 
   arrayTicket = tickets.filter(ticket => ticket.idTicket === id );
   return arrayTicket;
 };
+
+const searchByContact = (tickets,name) => {
+  let arrayTicket = []; 
+  arrayTicket = tickets.filter(ticket => ticket.nombre.toLowerCase().includes(name.toLowerCase));
+  return arrayTicket;
+}
+
+const searchByMail = (tickets,mail) => {
+  let arrayTicket = []; 
+  arrayTicket = tickets.filter(ticket => ticket.email.toLowerCase().includes(mail.toLowerCase()));
+  return arrayTicket;
+}
 
 const viewOpenTickets = (tickets) => {
   let openTickets = tickets.filter((ticket) => ticket.estado === "abierto");
@@ -55,7 +67,9 @@ const print = (ticket) => {
 
 export {
   newTicket,
-  searchTicketByID,
+  searchByID,
+  searchByMail,
+  searchByContact,
   viewOpenTickets,
   viewCloseTickets,
   editTicketState,

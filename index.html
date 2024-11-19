@@ -13,17 +13,11 @@
   <body>
     <nav>
       <h1 id="title">Simulador de ticketera de casos</h1>
-      <div class="filterContainer">
-        <ul class="filters">
-          <div class="searchID">
-            <input type="text"  class="inputFilter" placeholder="Número de ticket">
-            <input type="text"  class="inputFilter" placeholder="Contacto">
-            <input type="text"  class="inputFilter" placeholder="Correo">
-          </div>
-        </ul>
-      </div>
     </nav>
 
+    <div class="search">
+      <input type="text"  class="inputFilter focus-ring" placeholder="Search ticket">
+    </div>
     <div class="titleContainer">
       <div class="titleDescription">
         <div class="infoTitle">N°</div>
@@ -35,7 +29,7 @@
       <div class="buttonsTicket">
         <div class="dropdown">
           <button id="buttonFilter" class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Visualizar
+             Filtros
           </button>
           <ul class="dropdown-menu">
             <li><button id="allTickets" class="dropdown-item" type="button">Todos los tickets</button></li>
@@ -43,6 +37,7 @@
             <li><button id="closeTickets" class="dropdown-item" type="button">Tickets cerrados</button></li>
           </ul>
         </div>
+        
       </div>
     </div>
 
