@@ -47,8 +47,8 @@ const render = (list) => {
         <div class="infoContent" id="description">${list[i].asunto}</div>
       </div>
       <div class="buttonsTicket">
-        <button type="button" class="btn btn-outline-success">Resuelto</button>
-        <button type="button" class="btn btn-outline-danger">Eliminar</button>
+        <button type="button" id="${list[i].idTicket}" class="btn btn-outline-success">Resuelto</button>
+        <button type="button" id="${list[i].idTicket}" class="btn btn-outline-danger">Eliminar</button>
       </div>
       `;
   
@@ -98,10 +98,19 @@ const viewAll = (tickets) => {
   });
 };
 
+const buttonResuelto = (tickets) => {
+  const button = document.querySelector('.btn-outline-success');
+  button.addEventListener('click', () => {
+    editTicketState(button.id)
+  });
+}
+
+
 export {
   render,
   search,
   viewOpenTicketsEvent,
   viewCloseTicketsEvent,
   viewAll,
+  buttonResuelto
 };

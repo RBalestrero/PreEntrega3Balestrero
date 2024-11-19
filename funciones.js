@@ -41,12 +41,7 @@ const viewCloseTickets = (tickets) => {
 };
 
 const editTicketState = () => {
-  let id = prompt("Ingese el ID del ticket que desea editar");
   let index = ticketList.findIndex((ticket) => ticket.idTicket === id);
-  let selec =
-    prompt(`El estado del ticket es ${ticketList[index].estado}, desea cambiarlo?
-    1- Si
-    2- No`);
   if (selec === "1") {
     if (ticketList[index].estado === "abierto")
       ticketList[index].estado = "cerrado";

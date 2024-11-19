@@ -3,7 +3,8 @@ import {
     search,
     viewOpenTicketsEvent,
     viewCloseTicketsEvent,
-    viewAll
+    viewAll,
+    buttonResuelto
 } from './eventos.js';
 
 import { ticketList } from './data.js';
@@ -18,4 +19,4 @@ viewCloseTicketsEvent(ticketList);
 
 viewAll(ticketList);
 
-
+buttonResuelto(ticketList);
