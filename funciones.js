@@ -40,14 +40,9 @@ const viewCloseTickets = (tickets) => {
   return closeTickets;
 };
 
-const editTicketState = () => {
+const editTicketState = (id) => {
   let index = ticketList.findIndex((ticket) => ticket.idTicket === id);
-  if (selec === "1") {
-    if (ticketList[index].estado === "abierto")
-      ticketList[index].estado = "cerrado";
-    else ticketList[index].estado = "abierto";
-    alert('El estado del ticket se ha cambiado con éxito.')
-  }
+  
 };
 
 const print = (ticket) => {
