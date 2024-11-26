@@ -8,57 +8,11 @@ import {
   editTicketState,
 } from "./funciones.js";
 
-const render = (list) => {
-  
-  // const ticket = document.querySelector(".ticketContainer");
-  // ticket.innerHTML = "";
+import {
+  render
+} from "./card.js"
 
-  // for (let i = 0; i < list.length; i++) {
-  //   ticket.insertAdjacentHTML(
-  //     "beforeend",
-  //     `
-  //     <div class="ticket">
-  //         <div class="infoTicket">
-  //           <div class="infoContent">${list[i].idTicket}</div>
-  //           <div class="infoContent">${list[i].nombre}</div>
-  //           <div class="infoContent">${list[i].email}</div>
-  //           <div class="infoContent">${list[i].estado}</div>
-  //           <div class="infoContent" id="description">${list[i].asunto}</div>
-  //         </div>
-  //         <div class="buttonsTicket">
-  //           <button type="button" class="btn btn-outline-success">Resuelto</button>
-  //           <button type="button" class="btn btn-outline-danger">Eliminar</button>
-  //         </div>
-  //       </div>`
-  //   );
-  // }
 
-  const container = document.querySelector(".ticketContainer");
-  container.innerHTML = "";
-  for(let i = 0; i<list.length; i++){
-    const ticket = document.createElement("div");
-    ticket.classList.add("ticket");
-    ticket.innerHTML =`
-      <div class="infoTicket">
-        <div class="infoContent">${list[i].idTicket}</div>
-        <div class="infoContent">${list[i].nombre}</div>
-        <div class="infoContent">${list[i].email}</div>
-        <div class="infoContent">${list[i].estado}</div>
-        <div class="infoContent" id="description">${list[i].asunto}</div>
-      </div>
-      <div class="buttonsTicket">
-        <button type="button" id="${list[i].idTicket}" class="btn btn-outline-success">Resuelto</button>
-        <button type="button" id="${list[i].idTicket}" class="btn btn-outline-danger">Eliminar</button>
-      </div>
-      `;
-  
-      
-      container.append(ticket);
-    }
-
-    closeTicket(list);
-    
-};
 
 const search = (tickets) => {
   const input = document.querySelector(".inputFilter");

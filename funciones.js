@@ -1,6 +1,3 @@
-// import { ticketList } from "./data.js";
-
-
 const newTicket = () => {
   let ticket = {};
   ticket.nombre = prompt("Ingrese el nombre y apellido");

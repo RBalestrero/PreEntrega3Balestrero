@@ -1,5 +1,9 @@
+import {
+    render
+  } from "./card.js";
+
+
 import { 
-    render,
     search,
     viewOpenTicketsEvent,
     viewCloseTicketsEvent,
