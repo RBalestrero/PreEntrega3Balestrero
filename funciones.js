@@ -9,6 +9,10 @@ const newTicket = () => {
   ticketList.push(ticket);
 };
 
+const storeTickets = (ticketList) =>{
+  localStorage.setItem("ticketList", JSON.stringify(ticketList));
+}
+
 const searchByID = (tickets, id) => {
   let arrayTicket = []; 
   arrayTicket = tickets.filter(ticket => ticket.idTicket === id );
@@ -41,6 +45,7 @@ const editTicketState = (tickets,id) => {
   let index = tickets.findIndex((ticket) => ticket.idTicket === id);
   tickets[index].estado = "cerrado";
   tickets[index].resultado = "Resuelto";
+  saveTicketInLocalStorage(tickets[index]);
   return tickets;
 
 };
@@ -55,6 +60,19 @@ const print = (ticket) => {
         Resultado: ${ticket.resultado}`);
 };
 
+const saveTicketInLocalStorage = (ticket) => {
+  let tickets =  JSON.parse(localStorage.getItem("deletedTickets")) || [] ; 
+  tickets.push(ticket);
+  localStorage.setItem("deletedTickets", JSON.stringify(tickets));
+};
+
+const deleteTicket = (tickets,id) => {
+  let index = tickets.findIndex((ticket) => ticket.idTicket === id);
+  tickets.splice(index,1);
+  saveTicketInLocalStorage(tickets[index]);
+  return tickets;
+};
+
 export {
   newTicket,
   searchByID,
@@ -63,4 +81,7 @@ export {
   viewOpenTickets,
   viewCloseTickets,
   editTicketState,
+  saveTicketInLocalStorage,
+  deleteTicket,
+  storeTickets
 };

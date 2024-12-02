@@ -1,12 +1,13 @@
-import {closeTicket} from "./eventos.js"
+import { closeTicket, deleteTicketEvent } from "./eventos.js";
 
-const render = (list) => { 
-    const container = document.querySelector(".ticketContainer");
-    container.innerHTML = "";
-    for(let i = 0; i<list.length; i++){
-      const ticket = document.createElement("div");
-      ticket.classList.add("ticket");
-      ticket.innerHTML =`
+const render = (list) => {
+  const container = document.querySelector(".ticketContainer");
+  container.innerHTML = "";
+  const deletedTickets = JSON.parse(localStorage.getItem("deletedTickets")) || [];
+  for (let i = 0; i < list.length; i++) {
+    const ticket = document.createElement("div");
+    ticket.classList.add("ticket");
+    ticket.innerHTML = `
         <div class="infoTicket">
           <div class="infoContent">${list[i].idTicket}</div>
           <div class="infoContent">${list[i].nombre}</div>
@@ -19,11 +20,10 @@ const render = (list) => {
           <button type="button" id="${list[i].idTicket}" class="btn btn-outline-danger">Eliminar</button>
         </div>
         `;
-        container.append(ticket);
-      }
-      closeTicket(list);
-  };
+    container.append(ticket);
+  }
+  closeTicket(list);
+  deleteTicketEvent(list);
+};
 
-  export{
-    render
-  };
+export { render };

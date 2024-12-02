@@ -6,6 +6,7 @@ import {
   viewOpenTickets,
   viewCloseTickets,
   editTicketState,
+  deleteTicket
 } from "./funciones.js";
 
 import {
@@ -65,6 +66,21 @@ const closeTicket = (tickets) => {
   });
 }
 
+const deleteTicketEvent = (tickets) => {
+  const button = document.querySelectorAll(".btn-outline-danger");
+  button.forEach(button => {
+    button.addEventListener("click", (e) => {
+      tickets = deleteTicket(tickets,e.target.id);
+      render(tickets);
+      let ticketList = JSON.parse(localStorage.getItem("ticketList"));
+      let index = ticketList.findIndex((ticket) => ticket.idTicket === e.target.id);
+      ticketList.splice(index,1);
+      localStorage.setItem("ticketList", JSON.stringify(ticketList));
+      console.log(ticketList);
+    });
+  });
+}
+
 
 export {
   render,
@@ -72,5 +88,6 @@ export {
   viewOpenTicketsEvent,
   viewCloseTicketsEvent,
   viewAll,
-  closeTicket
+  closeTicket,
+  deleteTicketEvent
 };

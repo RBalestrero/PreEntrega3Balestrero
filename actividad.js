@@ -1,19 +1,20 @@
 import {
     render
   } from "./card.js";
-
-
 import { 
     search,
     viewOpenTicketsEvent,
     viewCloseTicketsEvent,
     viewAll,
-    closeTicket
+    closeTicket,
 } from './eventos.js';
+import { storeTickets } from './funciones.js';
 
 import { ticketList } from './data.js';
 
-render(ticketList);
+localStorage.getItem("ticketList") ? storeTickets(JSON.parse(localStorage.getItem("ticketList"))) : storeTickets(ticketList);
+
+render(JSON.parse(localStorage.getItem("ticketList")));
 
 search(ticketList);
 
