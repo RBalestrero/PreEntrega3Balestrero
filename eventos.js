@@ -6,49 +6,61 @@ import {
   viewOpenTickets,
   viewCloseTickets,
   editTicketState,
-  deleteTicket
+  deleteTicket,
 } from "./funciones.js";
 
-import {
-  render
-} from "./card.js"
+import { render } from "./card.js";
 
-
-
-const search = (tickets) => {
+const search = () => {
+  let tickets;
   const input = document.querySelector(".inputFilter");
+  input.addEventListener("click", () => {
+    tickets = JSON.parse(localStorage.getItem("ticketList"));
+  });
   input.addEventListener("keydown", (e) => {
-    console.log(e);
     if (e.key === "Enter") {
       if (input.value) {
-        let ticketById = searchByID(tickets,input.value);
-        let ticketByContact = searchByContact(tickets,input.value);
-        let ticketByMail = searchByMail(tickets,input.value);    
-        render([...ticketById, ...ticketByContact, ...ticketByMail]);    
+        const ticketById = searchByID(tickets, input.value);
+        const ticketByContact = searchByContact(tickets, input.value);
+        const ticketByMail = searchByMail(tickets, input.value);
+        render([...ticketById, ...ticketByContact, ...ticketByMail]);
       } else render(tickets);
     }
   });
 
-  input.addEventListener("change", (e) => {
+  input.addEventListener("change", () => {
     if (input.value === "") render(tickets);
+  });
+
+  input.addEventListener("focusout", () => {
+    if (input.value === "") render(tickets);
+    else {
+      const ticketById = searchByID(tickets, input.value);
+      const ticketByContact = searchByContact(tickets, input.value);
+      const ticketByMail = searchByMail(tickets, input.value);
+      render([...ticketById, ...ticketByContact, ...ticketByMail]);
+    }
   });
 };
 
-const viewOpenTicketsEvent = (tickets) => {
+const viewOpenTicketsEvent = () => {
   const button = document.querySelector("#openTickets");
   button.addEventListener("click", () => {
+    const tickets = JSON.parse(localStorage.getItem("ticketList"));
     render(viewOpenTickets(tickets));
   });
 };
 
-const viewCloseTicketsEvent = (tickets) => {
+const viewCloseTicketsEvent = () => {
   const button = document.querySelector("#closeTickets");
   button.addEventListener("click", () => {
+    const tickets = JSON.parse(localStorage.getItem("ticketList"));
     render(viewCloseTickets(tickets));
   });
 };
 
-const viewAll = (tickets) => {
+const viewAll = () => {
+  const tickets = JSON.parse(localStorage.getItem("ticketList"));
   const button = document.querySelector("#allTickets");
   button.addEventListener("click", () => {
     render(tickets);
@@ -56,31 +68,38 @@ const viewAll = (tickets) => {
 };
 
 const closeTicket = (tickets) => {
-  console.log('click');
-  const buttons = document.querySelectorAll('.btn-outline-success');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      tickets = editTicketState(tickets,button.id);
+  const buttons = document.querySelectorAll(".btn-outline-success");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      tickets = editTicketState(tickets, button.id);
       render(tickets);
-    })
+    });
   });
-}
+};
 
 const deleteTicketEvent = (tickets) => {
   const button = document.querySelectorAll(".btn-outline-danger");
-  button.forEach(button => {
+  button.forEach((button) => {
     button.addEventListener("click", (e) => {
-      tickets = deleteTicket(tickets,e.target.id);
+      tickets = deleteTicket(tickets, e.target.id);
       render(tickets);
       let ticketList = JSON.parse(localStorage.getItem("ticketList"));
-      let index = ticketList.findIndex((ticket) => ticket.idTicket === e.target.id);
-      ticketList.splice(index,1);
+      let index = ticketList.findIndex(
+        (ticket) => ticket.idTicket === e.target.id
+      );
+      ticketList.splice(index, 1);
       localStorage.setItem("ticketList", JSON.stringify(ticketList));
-      console.log(ticketList);
     });
   });
-}
+};
 
+const deletedTicketsFilter = () => {
+  const button = document.querySelector("#deletedTickets");
+  button.addEventListener("click", () => {
+    let ticketList = JSON.parse(localStorage.getItem("deletedTickets"));
+    render(ticketList);
+  });
+};
 
 export {
   render,
@@ -89,5 +108,6 @@ export {
   viewCloseTicketsEvent,
   viewAll,
   closeTicket,
-  deleteTicketEvent
+  deleteTicketEvent,
+  deletedTicketsFilter,
 };

@@ -3,7 +3,6 @@ import { closeTicket, deleteTicketEvent } from "./eventos.js";
 const render = (list) => {
   const container = document.querySelector(".ticketContainer");
   container.innerHTML = "";
-  const deletedTickets = JSON.parse(localStorage.getItem("deletedTickets")) || [];
   for (let i = 0; i < list.length; i++) {
     const ticket = document.createElement("div");
     ticket.classList.add("ticket");

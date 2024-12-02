@@ -7,6 +7,7 @@ import {
     viewCloseTicketsEvent,
     viewAll,
     closeTicket,
+    deletedTicketsFilter
 } from './eventos.js';
 import { storeTickets } from './funciones.js';
 
@@ -18,11 +19,13 @@ render(JSON.parse(localStorage.getItem("ticketList")));
 
 search(ticketList);
 
-viewOpenTicketsEvent(ticketList);
+viewOpenTicketsEvent();
 
-viewCloseTicketsEvent(ticketList);
+viewCloseTicketsEvent();
 
-viewAll(ticketList);
+viewAll();
+
+deletedTicketsFilter();
 
 
 

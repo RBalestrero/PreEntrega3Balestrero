@@ -32,7 +32,7 @@ const searchByMail = (tickets,mail) => {
 }
 
 const viewOpenTickets = (tickets) => {
-  let openTickets = tickets.filter((ticket) => ticket.estado === "abierto");
+  const openTickets = tickets.filter((ticket) => ticket.estado === "abierto");
   return openTickets;
 };
 
@@ -68,8 +68,8 @@ const saveTicketInLocalStorage = (ticket) => {
 
 const deleteTicket = (tickets,id) => {
   let index = tickets.findIndex((ticket) => ticket.idTicket === id);
-  tickets.splice(index,1);
   saveTicketInLocalStorage(tickets[index]);
+  tickets.splice(index,1);
   return tickets;
 };
 
