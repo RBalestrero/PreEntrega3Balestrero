@@ -60,18 +60,21 @@ const viewCloseTicketsEvent = () => {
 };
 
 const viewAll = () => {
-  const tickets = JSON.parse(localStorage.getItem("ticketList"));
   const button = document.querySelector("#allTickets");
   button.addEventListener("click", () => {
+    const tickets = JSON.parse(localStorage.getItem("ticketList"));
     render(tickets);
   });
 };
 
-const closeTicket = (tickets) => {
+const closeTicket = () => {
   const buttons = document.querySelectorAll(".btn-outline-success");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+      let tickets = JSON.parse(localStorage.getItem("ticketList"));
+      console.log(tickets);
       tickets = editTicketState(tickets, button.id);
+      localStorage.setItem("ticketList", JSON.stringify(tickets));
       render(tickets);
     });
   });
